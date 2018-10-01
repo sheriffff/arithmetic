@@ -1,0 +1,24 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <p>Introduce una lista de números separados por comas para evaluar el modelo</p>
+        <form>
+            <input type="text" name="data" id="data" value="0.123, 1.234">
+            <input type="button" value="Evaluar modelo" onclick="model_result()">
+        </form>
+        <p>Resultado: <div id="result"></div></p>
+        <script type="text/javascript">
+            function model_result(){
+                function reqListener(){
+                    document.getElementById('result').innerHTML = this.responseText;
+                }
+
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", reqListener);
+                oReq.open("GET", "http://localhost:5000/api/predict?x=" + document.getElementById('data').value);
+                oReq.send();
+            }
+        </script>    
+    </body>
+</html>

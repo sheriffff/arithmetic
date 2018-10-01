@@ -1,0 +1,13 @@
+__pycache__/
+
+#Ipython Notebook
+.ipynb_checkpoints
+
+#Pycharm folder
+.idea
+
+# Sphinx documentation
+docs/_build/
+
+# Vendoring
+requirements.txt
